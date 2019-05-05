@@ -27,6 +27,7 @@ COPY . ./
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime \
     && echo $TIMEZONE > /etc/timezone \
     && chmod +x /entrypoint.sh \
+    && chmod +x /install.sh \
     && cd /usr/bin/ \
     && chmod +x conanexiles_controller rconcli steamcmd_setup
     
