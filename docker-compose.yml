@@ -3,67 +3,28 @@ version: "3.5"
 services:
   ce0:
     build: src/
-    image: alinmear/docker-conanexiles:1.2
+    image: alinmear/docker-conanexiles:latest
     restart: unless-stopped
     environment:
-      - "CONANEXILES_ServerSettings_ServerSettings_AdminPassword=ThanksForThisSmartSolution"
-      - "CONANEXILES_Engine_OnlineSubSystemSteam_ServerName=My Cool Server 1"
-      - "CONANEXILES_Engine_OnlineSubSystemSteam_ServerPassword=MySecret"
+      - "CONANEXILES_Engine_OnlineSubSystemSteam_ServerName=A Conan Exiles Server"
+      - "CONANEXILES_Engine_OnlineSubSystemSteam_ServerPassword=verysecure123"
+      - "CONANEXILES_ServerSettings_ServerSettings_AdminPassword=themostsecure1234"
       - "CONANEXILES_INSTANCENAME=exiles0"
-      - "CONANEXILES_Game_RconPlugin_RconEnabled=1"
-      - "CONANEXILES_Game_RconPlugin_RconPassword=REDACTED"
-      - "CONANEXILES_Game_RconPlugin_RconPort=25575"
-      - "CONANEXILES_Game_RconPlugin_RconMaxKarma=60"
+      - "CONANEXILES_SERVER_TYPE=pve"
+      - "UPDATE_MODS=+workshop_download_item 440900 1657730588"
+      
     ports:
         - 7777:7777/udp
         - 7778:7778/udp
         - 27015:27015/udp
     volumes:
-        - data:/conanexiles
-
-  ce1:
-    image: alinmear/docker-conanexiles:1.2
-    restart: unless-stopped
-    environment:
-      - "CONANEXILES_ServerSettings_ServerSettings_AdminPassword=ThanksForThisSmartSolution"
-      - "CONANEXILES_Engine_OnlineSubSystemSteam_ServerName=My Cool Server 2"
-      - "CONANEXILES_Engine_OnlineSubSystemSteam_ServerPassword=MySecret"
-      - "CONANEXILES_MASTERSERVER=0"
-      - "CONANEXILES_INSTANCENAME=exiles1"
-      - "CONANEXILES_Game_RconPlugin_RconEnabled=1"
-      - "CONANEXILES_Game_RconPlugin_RconPassword=REDACTED"
-      - "CONANEXILES_Game_RconPlugin_RconPort=25575"
-      - "CONANEXILES_Game_RconPlugin_RconMaxKarma=60"
-    ports:
-        - 7779:7777/udp
-        - 27017:27015/udp
-    volumes:
-        - data:/conanexiles
-
-  ce2:
-    image: alinmear/docker-conanexiles:1.2
-    restart: unless-stopped
-    environment:
-      - "CONANEXILES_ServerSettings_ServerSettings_AdminPassword=ThanksForThisSmartSolution"
-      - "CONANEXILES_Engine_OnlineSubSystemSteam_ServerName=My Cool Server 3"
-      - "CONANEXILES_Engine_OnlineSubSystemSteam_ServerPassword=MySecret"
-      - "CONANEXILES_MASTERSERVER=0"
-      - "CONANEXILES_INSTANCENAME=exiles2"
-      - "CONANEXILES_Game_RconPlugin_RconEnabled=1"
-      - "CONANEXILES_Game_RconPlugin_RconPassword=REDACTED"
-      - "CONANEXILES_Game_RconPlugin_RconPort=25575"
-      - "CONANEXILES_Game_RconPlugin_RconMaxKarma=60"
-    ports:
-        - 7780:7777/udp
-        - 27018:27015/udp
-    volumes:
-        - data:/conanexiles
+        - data:/conanexiles/ConanSandbox/exiles0
 
   redis:
     image: redis:5-alpine
     restart: unless-stopped
     environment:
-      - "TZ=Europe/Vienna"
+      - "TZ=Europe/Berlin"
     volumes:
       - redis:/data/
 
