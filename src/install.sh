@@ -4,6 +4,7 @@
 
 for mod in $(ls /root/Steam/steamapps/workshop/content/440900/)
 do
+  mkdir /conanexiles/ConanSandbox/Mods
   ls /root/Steam/steamapps/workshop/content/440900/$mod/ >> /conanexiles/ConanSandbox/Mods/modlist.txt
-  mv /root/Steam/steamapps/workshop/content/440900/$mod/* /conanexiles/ConanSandbox/Mods
+  mv /root/Steam/steamapps/workshop/content/440900/$mod/* /conanexiles/ConanSandbox/Mods/
 done
