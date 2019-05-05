@@ -5,5 +5,5 @@
 for mod in $(ls /root/Steam/steamapps/workshop/content/440900/)
 do
   ls /root/Steam/steamapps/workshop/content/440900/$mod/ >> /conanexiles/ConanSandbox/Mods/modlist.txt
-  mv /root/Steam/steamapps/workshop/content/440900/$mod/* /conanexiles/ConanSandbox/Mods done
+  mv /root/Steam/steamapps/workshop/content/440900/$mod/* /conanexiles/ConanSandbox/Mods
 done
